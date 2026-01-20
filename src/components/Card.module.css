@@ -1,0 +1,76 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(112, 161, 255, 0.4);
+}
+
+/* Doc Styles */
+.iconWrapper {
+    font-size: 3rem;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Photo Styles */
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 16/9;
+    /* Or auto for masonry */
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contentOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .contentOverlay {
+    opacity: 1;
+}
+
+.contentOverlay h3 {
+    margin: 0;
+    font-size: 1rem;
+}

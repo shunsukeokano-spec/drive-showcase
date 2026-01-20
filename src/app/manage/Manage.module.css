@@ -1,0 +1,181 @@
+.adminGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputGroup label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    border-color: var(--accent-primary);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Dropzone */
+.dropzone {
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.dropzone:hover,
+.dragging {
+    border-color: var(--accent-primary);
+    background: rgba(112, 161, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.dropText {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.subtext {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    color: #10b981;
+    font-weight: 600;
+    z-index: 100;
+}
+
+/* List Styles */
+.thumbnailWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s;
+}
+
+.listItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.itemInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.typeBadge {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.itemTitle {
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btnIcon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.btnIcon:hover {
+    transform: scale(1.2);
+}
+
+.btnIconDelete:hover {
+    filter: grayscale(1);
+    transform: scale(1.2);
+}
+
+.editInput {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--accent-primary);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+    flex: 1;
+}

@@ -1,0 +1,41 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.backLink {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.frameWrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background: white;
+    /* Docs usually look better on white if transparent iframe */
+    border-radius: var(--radius-md);
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
