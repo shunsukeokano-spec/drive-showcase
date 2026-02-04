@@ -55,7 +55,9 @@ export async function saveData(data: ContentData): Promise<void> {
   // Overwrite the JSON file in Blob
   await put(DB_FILENAME, JSON.stringify(data, null, 2), {
     access: 'public',
-    addRandomSuffix: false // KEEP FALSE to allow overwriting key
+    addRandomSuffix: false, // KEEP FALSE to allow overwriting key
+    allowOverwrite: true,
+    token: process.env.BLOB_READ_WRITE_TOKEN,
   });
 }
 
@@ -99,7 +101,9 @@ export async function deleteItem(id: string, type: 'doc' | 'photo'): Promise<boo
 
     // Delete the actual image file from Blob
     try {
-      await del(photo.url);
+      await del(photo.url, {
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+      });
     } catch (e) {
       console.error("Failed to delete blob", e);
     }

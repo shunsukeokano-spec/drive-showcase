@@ -65,10 +65,14 @@ export default function AdminClient() {
 
     const uploadFiles = async (files: File[]) => {
         let successCount = 0;
+        let errors: string[] = [];
         setUploadStatus(`Uploading ${files.length} photos...`);
 
         for (const file of files) {
-            if (!file.type.startsWith('image/')) continue; // Skip non-images
+            if (!file.type.startsWith('image/')) {
+                errors.push(`${file.name}: Not an image (${file.type})`);
+                continue;
+            }
 
             const formData = new FormData();
             formData.append('file', file);
@@ -78,12 +82,23 @@ export default function AdminClient() {
                     method: 'POST',
                     body: formData,
                 });
-                if (res.ok) successCount++;
+
+                if (res.ok) {
+                    successCount++;
+                } else {
+                    const data = await res.json();
+                    errors.push(`${file.name}: ${data.error || 'Server Error'}`);
+                }
             } catch (err) {
-                console.error('Upload failed for', file.name);
+                errors.push(`${file.name}: Network Error`);
             }
         }
-        setUploadStatus(`Finished: Uploaded ${successCount} photos.`);
+
+        if (errors.length > 0) {
+            setUploadStatus(`Uploaded ${successCount}/${files.length}. Errors: ${errors.join(', ')}`);
+        } else {
+            setUploadStatus(`Finished: Uploaded ${successCount} photos.`);
+        }
     };
 
     return (
