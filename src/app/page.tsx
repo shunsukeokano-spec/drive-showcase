@@ -48,6 +48,9 @@ export default async function Home() {
           )}
         </div>
       </section>
+      <footer style={{ marginTop: 'auto', padding: '20px', textAlign: 'center', color: '#666', fontSize: '0.8rem' }}>
+        v0.1.1
+      </footer>
     </main>
   );
 }
